@@ -1,0 +1,12 @@
+To instantly install every library needed to run the ALIW SYSTEM on a new computer, open your Command Prompt (CMD) or PowerShell and paste this exact command:
+
+pip install customtkinter pillow reportlab qrcode tkcalendar requests
+
+---
+WHAT EACH LIBRARY DOES:
+1. customtkinter: Powers the beautiful modern UI, rounded buttons, and colors.
+2. pillow: Used for blurring background images and handling picture formats.
+3. reportlab: Used to generate the fine receipts and reading history PDFs.
+4. qrcode: Generates the digital library card and book borrowing QR codes.
+5. tkcalendar: Used for the date-selection calendars in the borrowing catalog.
+6. requests: Used to fetch high-quality book cover images from the Google Books API.

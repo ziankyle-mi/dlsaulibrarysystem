@@ -1,0 +1,6 @@
+customtkinter
+pillow
+reportlab
+qrcode
+tkcalendar
+requests

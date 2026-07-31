@@ -1,0 +1,31 @@
+=======================================================
+ALIW SYSTEM - THESIS DEFENSE TECHNICAL GUIDE
+=======================================================
+
+This document is designed to help you explain the technical decisions made in your codebase to your defense panel.
+
+1. WHY DID YOU USE SQLITE INSTEAD OF MYSQL/FIREBASE?
+-------------------------------------------------------
+If a panelist asks why you used SQLite, your answer should be about "Scope and Architecture":
+- "SQLite is a serverless, self-contained database. Since our system is designed as a standalone desktop application for the librarian's desk, it doesn't require a constant internet connection or a dedicated backend server like MySQL would."
+- "It is extremely fast for local read/write operations (like scanning books), has zero configuration/setup requirements for the end-user, and stores the entire database in a single file ('books_system.db'). This makes deployment, backups, and maintenance significantly easier for a school library."
+- "If we decide to scale this to a cloud-based web app in the future, our Python code uses standard SQL queries, meaning migrating from SQLite to PostgreSQL or MySQL would require very little code refactoring."
+
+2. WHY DID YOU USE CUSTOMTKINTER (CTK)?
+-------------------------------------------------------
+- "Standard Tkinter looks outdated and does not fit modern UI/UX standards. CustomTkinter allowed us to build a visually appealing, responsive interface with rounded corners, dark/light modes, and custom fonts, while still maintaining the lightweight, built-in reliability of standard Python."
+
+3. HOW DOES THE TRANSACTION (TICKET) SYSTEM WORK?
+-------------------------------------------------------
+- "When a student checks out a book, the system creates a 'Pending' transaction with a unique Transaction ID rather than instantly modifying the inventory. This prevents stock-outs if a student never shows up."
+- "Only when the student physically goes to the desk and the Librarian inputs the Ticket ID does the system finalize the transaction. This ensures accurate, real-time inventory tracking and prevents 'ghost reservations' from locking up books indefinitely."
+
+4. IS THERE ANY BLOATWARE OR UNUSED CODE IN THIS SYSTEM?
+-------------------------------------------------------
+- "No. The codebase is highly modular. Every Python file in the 'modules' folder corresponds to a specific dashboard page (e.g., student_catalog, finemanagement). Helper scripts are neatly isolated in the 'utils' folder. We have thoroughly audited the codebase and removed all unused files, orphaned dependencies, and __pycache__ artifacts."
+
+5. HOW ARE FINES CALCULATED?
+-------------------------------------------------------
+- "Fines are calculated dynamically using Python's 'datetime' library. We compare the exact due date stored in SQLite against the system's current date. If the current date exceeds the due date, we multiply the difference in days by our standard fine rate, ensuring automated and mathematically accurate penalties."
+
+Remember: Be confident! Your code is extremely clean, modular, and handles edge cases very well. You've got this!
