@@ -8,6 +8,11 @@ A comprehensive library management system built with Python and CustomTkinter, d
 - **Admin Dashboard**: Manage inventory, process borrow requests, and handle fine payments.
 - **Cross-Platform**: Works on Windows, macOS, and Linux with responsive and modern UI.
 
+## Tech Stack
+- **Language**: Python 3.10+
+- **GUI Framework**: CustomTkinter & Tkinter (for the modern, graphical user interface)
+- **Database**: SQLite 3 (lightweight, serverless relational database for storing users, books, and transactions)
+
 ## Quick Start
 
 ### Requirements
